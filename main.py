@@ -1,7 +1,7 @@
 import requests
 
 
-def show_weather(places):
+def show_weather_forecast(places):
     url_template = 'https://wttr.in/{}'
     payload = {
         'lang': 'ru',
@@ -15,7 +15,7 @@ def show_weather(places):
 
 def main():
     places = ('Лондон', 'SVO', 'Череповец')
-    show_weather(places)
+    show_weather_forecast(places)
 
 
 if __name__ == '__main__':
