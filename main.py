@@ -1,21 +1,21 @@
 import requests
 
 
-def show_weather_forecast(places):
+def get_weather_forecast(place):
     url_template = 'https://wttr.in/{}'
     payload = {
         'lang': 'ru',
         'TnMq': '',
     }
-    for place in places:
-        response = requests.get(url_template.format(place), params=payload)
-        response.raise_for_status()
-        print(response.text)
+    response = requests.get(url_template.format(place), params=payload)
+    response.raise_for_status()
+    return response.text
 
 
 def main():
     places = ('Лондон', 'SVO', 'Череповец')
-    show_weather_forecast(places)
+    for place in places:
+        print(get_weather_forecast(place))
 
 
 if __name__ == '__main__':
